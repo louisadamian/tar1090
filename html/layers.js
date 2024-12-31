@@ -412,6 +412,50 @@ function createBaseLayers() {
         maxZoom: 13,
     }));
 
+    us.push(new ol.layer.Vector({
+        source: new ol.source.Vector({
+            url: 'https://raw.githubusercontent.com/louisadamian/sigmet-geojson/refs/heads/main/data/usa_sigmets_current.geojson',
+            format: new ol.format.GeoJSON(),
+            attributions: 'SIGMETs courtesy of <a href="https://github.com/louisadamian/sigmet-geojson" target="_blank">sigmets-geojson</a>.'
+        }),
+        style: new ol.style.Style({
+            fill: new ol.style.Fill({
+                color : [255, 31, 0, 0.6]
+            }),
+            stroke: new ol.style.Stroke({
+                color: [0, 0, 0, 0.9],
+                width: 1
+            }),
+        }),
+        name: 'sigmets',
+        title: 'SIGMETs',
+        type: 'overlay',
+        opacity: tfrOpacity,
+        visible: false,
+        zIndex: 99,
+    }));
+    us.push(new ol.layer.Vector({
+        source: new ol.source.Vector({
+            url: 'https://raw.githubusercontent.com/louisadamian/sigmet-geojson/refs/heads/main/data/usa_airmets_current.geojson',
+            format: new ol.format.GeoJSON(),
+            attributions: 'SIGMETs courtesy of <a href="https://github.com/louisadamian/sigmet-geojson" target="_blank">sigmets-geojson</a>.'
+        }),
+        style: new ol.style.Style({
+            fill: new ol.style.Fill({
+                color : [0, 255, 255, 0.6]
+            }),
+            stroke: new ol.style.Stroke({
+                color: [0, 0, 0, 0.9],
+                width: 1
+            }),
+        }),
+        name: 'airmets',
+        title: 'AIRMETs',
+        type: 'overlay',
+        opacity: tfrOpacity,
+        visible: false,
+        zIndex: 99,
+    }));
     if (true) {
         us.push(new ol.layer.Vector({
             source: new ol.source.Vector({
